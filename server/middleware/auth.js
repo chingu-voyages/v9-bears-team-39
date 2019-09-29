@@ -12,7 +12,7 @@ function auth(req, res, next) {
     // Verify token
     const decoded = jwt.verify(
       token,
-      config.get('jwtSecret') || process.env.jwtSecret
+      process.env.jwtSecret || config.get('jwtSecret')
     );
     // Add user from payload
     req.user = decoded;
